@@ -15,6 +15,7 @@ import metamaskLogo from '../svg/metamask.svg';
 import walletConnectLogo from '../svg/walletconnect.svg';
 
 import { formatEtherTruncated } from '../utils/format';
+import { explorer } from '../utils/constants';
 
 export function Connect() {
   const { address, isConnected } = useAccount();
@@ -27,6 +28,7 @@ export function Connect() {
   const { disconnect } = useDisconnect();
 
   const [metamask, walletConnect] = connectors;
+  const explorerAddress = explorer[chain?.id || 50 || 51];
 
   const shortAddress = address
     ? `${address.substring(0, 6)}…${address.substring(address.length - 4)}`
@@ -47,7 +49,7 @@ export function Connect() {
         </div>
         <div className="dropdown-body">
           <a
-            href={`https://apothem.xinfinscan.com/address/${address}`}
+            href={`https://${explorerAddress}/address/${address}`}
             target="_blank"
             rel="noreferrer"
             className="text"

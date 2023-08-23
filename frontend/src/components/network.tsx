@@ -30,7 +30,7 @@ export function Network() {
         </div>
         <div className="dropdown-body">
           {chains
-            .filter((chain) => [51].indexOf(chain.id) >= 0)
+            .filter((chain) => [50, 51].indexOf(chain.id) >= 0)
             .map((chain) => (
               <button
                 className="hbutton hbutton-lnk"

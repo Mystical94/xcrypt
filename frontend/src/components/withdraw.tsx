@@ -21,7 +21,7 @@ import { formatEther, getAddress, keccak256 } from 'ethers/lib/utils';
 import { useAccount, useContractRead, useNetwork } from 'wagmi';
 import { default as REGISTRY_ABI } from '../abi/Registry.json';
 import { copyTextToClipboard } from '../utils/clipboard';
-import { registryAddress } from '../utils/constants';
+import { registryAddress, explorer } from '../utils/constants';
 import { formatEtherTruncated } from '../utils/format';
 import { AddressContext, AddressContextType } from './address';
 
@@ -47,9 +47,10 @@ export function Withdraw() {
   const { isConnected, address, connector } = useAccount();
 
   const registryConfig = {
-    address: registryAddress[chain?.id || 51],
+    address: registryAddress[chain?.id || 50 || 51],
     abi: REGISTRY_ABI,
   };
+  const explorerAddress = explorer[chain?.id || 50 || 51];
 
   const [keysCount, setKeysCount] = useState<number>(0);
   const [keysIndex, setKeysIndex] = useState<number>(0);
@@ -442,12 +443,12 @@ export function Withdraw() {
                 <p className="message">
                   <span>Transaction pending. </span>
                   <a
-                    href={`https://apothem.xinfinscan.com/tx/${txPending}`}
+                    href={`https://${explorerAddress}/tx/${txPending}`}
                     target="_blank"
                     rel="noreferrer"
                     className="link-text"
                   >
-                    View on XDC Apothem Explorer{' '}
+                    View on {chain?.name.split(' ')[0]} Explorer{' '}
                     <FontAwesomeIcon
                       icon={faArrowRight}
                       transform={{ rotate: -45 }}
@@ -462,12 +463,12 @@ export function Withdraw() {
                 <p className="message">
                   <strong>Transaction sent! </strong>
                   <a
-                    href={`https://apothem.xinfinscan.com/tx/${withdrawSuccess}`}
+                    href={`https://${explorerAddress}/tx/${withdrawSuccess}`}
                     target="_blank"
                     rel="noreferrer"
                     className="link-text"
                   >
-                    View on XDC Apothem Explorer{' '}
+                    View on {chain?.name.split(' ')[0]} Explorer{' '}
                     <FontAwesomeIcon
                       icon={faArrowRight}
                       transform={{ rotate: -45 }}

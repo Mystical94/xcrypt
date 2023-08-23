@@ -18,7 +18,7 @@ import Logo from '../svg/logo.png';
 import SendReceive from '../svg/send-receive.svg';
 import Shield from '../svg/shield.svg';
 
-import { registryAddress } from '../utils/constants';
+import { registryAddress, explorer } from '../utils/constants';
 
 import './main.css';
 
@@ -26,7 +26,8 @@ export function Main() {
   const [activeTab, setActiveTab] = useState<string>('send');
 
   const { chain } = useNetwork();
-  const contractAddress = registryAddress[chain?.id || 51];
+  const contractAddress = registryAddress[chain?.id || 50 || 51];
+  const explorerAddress = explorer[chain?.id || 50 || 51];
 
   return (
     <section className="layout">
@@ -123,7 +124,7 @@ export function Main() {
 
         <div className="footer">
           <a
-            href="https://youtu.be/Zu2vLWgYd4U"
+            href="https://youtu.be/zeQw4JHy00o"
             rel="noreferrer"
             target="_blank"
           >
@@ -133,7 +134,7 @@ export function Main() {
             </span>
           </a>
           <a
-            href={`https://apothem.xinfinscan.com/address/${contractAddress}`}
+            href={`https://${explorerAddress}/address/${contractAddress}`}
             style={{ flexGrow: 1 }}
             target="_blank"
             rel="noreferrer"

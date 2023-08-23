@@ -21,6 +21,11 @@ const config: HardhatUserConfig = {
     }
   },
   networks: {
+    xdc: {
+      url: `https://erpc.xinfin.network`,
+      chainId: 50,
+      accounts: [`0x${PRIVATE_KEY}`]
+    },
     xdcTestnet: {
       url: `https://erpc.apothem.network`,
       chainId: 51,

@@ -16,7 +16,7 @@ import {
   useWaitForTransaction
 } from 'wagmi';
 import { default as REGISTRY_ABI } from '../abi/Registry.json';
-import { registryAddress } from '../utils/constants';
+import { registryAddress, explorer } from '../utils/constants';
 import { calculateCrc } from '../utils/crc16';
 import useDebounce from '../utils/debounce';
 import { formatEtherTruncated } from '../utils/format';
@@ -51,6 +51,7 @@ export function Send() {
 
   const debouncedAmount = useDebounce(amountWei, 500);
   const debouncedAddr = useDebounce(xdcAddr, 500);
+  const explorerAddress = explorer[chain?.id || 50 || 51];
 
   const {
     isError: isPrepareError,
@@ -289,12 +290,12 @@ export function Send() {
               <p className="message">
                 <strong>Successfully sent!</strong>&nbsp;
                 <a
-                  href={`https://apothem.xinfinscan.com/tx/${data?.hash}`}
+                  href={`https://${explorerAddress}/tx/${data?.hash}`}
                   className="link-text"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  View on XDC Apothem Testnet{' '}
+                  View on {chain?.name.split(' ')[0]} Explorer{' '}
                   <FontAwesomeIcon
                     icon={faArrowRight}
                     transform={{ rotate: -45 }}
