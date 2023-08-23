@@ -51,24 +51,23 @@ export function Main() {
 
         <div className="promo large-block">
           <h1>
-            Bring <span className="promo-accent">anonymous</span> & simple
-            <br /> transfers to {chain?.name.split(' ')[0] || 'XDC'}
+          Introducing <span className="promo-accent">Anonymous</span> & <span className="promo-accent">Effortless</span>
+            <br /> Transfers on the {chain?.name.split(' ')[0] || 'XDC'} Network
           </h1>
 
           <div className="benefits">
             <div className="item">
               <img src={Shield} alt="" width={24} />
               <p>
-                Make use of stealth addresses with <strong>no&nbsp;link</strong>{' '}
-                to your existing accounts.
+              Safeguard Your Transactions with <strong>Untraceable&nbsp;Stealth Addresses</strong>{' '}
+              
               </p>
             </div>
             <div className="item">
               <img src={SendReceive} alt="" width={24} />
               <p>
                 Send and receive {chain?.nativeCurrency.symbol || 'XDC'}{' '}
-                <strong>privately</strong> as well as tokens & NFTs{' '}
-                <i>(soon)</i>
+                <strong>privately</strong>
               </p>
             </div>
           </div>
