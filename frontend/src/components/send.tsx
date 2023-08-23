@@ -186,8 +186,8 @@ export function Send() {
   return (
     <div style={{ paddingTop: '1rem' }}>
       <p>
-        Funds will be sent to the temporary stealth blockchain account,
-        controlled by the owner of Xcrypt ID.
+      XDC will be sent to a secret blockchain account that will hold the XDC temporarily.
+      The user who owns the Xcrypt ID will have control over the secret account.
       </p>
       <form
         className="lane"
