@@ -2,12 +2,6 @@
 
 Xcrypt is a non-custodial solution that uses stealth addresses which enables users to receive funds on XDC Blockchain without revealing receivers real address.
 
-### 💻 Live Site
-[Xcrypt Platform](http://xcrypt-61dc85.spheron.app/)
-
-### 📺 Video Demo
-https://youtu.be/zeQw4JHy00o
-
 ## 📝 Project Description
 
 ### ✍ Project Overview
