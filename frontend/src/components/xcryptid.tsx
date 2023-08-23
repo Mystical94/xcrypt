@@ -130,7 +130,7 @@ export function XcryptID() {
           <div className="xcrypt-pane-header">
             <div className="header-item" style={{ alignItems: 'center' }}>
               <div className="header-item header-title">
-                <h1>Xcrypt ID</h1>
+                <h1>Your Xcrypt ID</h1>
               </div>
               <button
                 className={opened ? 'arrow' : 'arrow arrow-down'}
@@ -204,7 +204,7 @@ export function XcryptID() {
         className="xcrypt-pane-body"
         style={{ display: opened ? 'block' : 'none' }}
       >
-        <p className="block">Share the Xcrypt ID to receive XDC</p>
+        <p className="block">Share the Xcrypt ID to receive funds.</p>
         <div className="xcrypt-pane-header buttons">
           <div className="block-wide">
             <p className="label" style={{ textTransform: 'uppercase' }}>
@@ -239,7 +239,9 @@ export function XcryptID() {
         <div className="xcrypt-pane-header">
           <div className="block-wide">
             <p className="message">
-            After you've shared your ID, make sure to save its key. You'll need the key to withdraw funds. Remember, only share the ID, not the key.
+              Once you shared your ID, you should <strong>save its key</strong>{' '}
+              to be able to withdraw funds from it. <strong>Never</strong> share
+              your key, only ID.
             </p>
           </div>
 
