@@ -15,8 +15,13 @@
     90deg,
     rgba(25, 27, 39, 0) 0%,
     #191b27 100%
-  ) !important;
+  ) ;
   /* shadow-right */
+
+  /*background: linear-gradient(270deg, rgba(25, 27, 39, 0) 0%, #191b27 100%);*/
+
+  background-color: rgb(58, 255, 234, 0.7); /* Initial background color */
+  /*transition: background-color 0.3s ease; /* Transition for smooth color change */
 
   filter: drop-shadow(16px 0px 16px rgba(0, 0, 0, 0.24)) !important;
   border-radius: 8px;

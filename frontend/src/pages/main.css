@@ -167,7 +167,13 @@ p {
 
   /* gradient-base */
 
+  /*box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;*/
+
   background: linear-gradient(270deg, rgba(25, 27, 39, 0) 0%, #191b27 100%);
+
+  background-color: rgb(58, 255, 234, 0.7); /* Initial background color */
+  transition: background-color 0.3s ease; /* Transition for smooth color change */
+
   /* shadow-right */
 
   filter: drop-shadow(-16px 0px 16px rgba(0, 0, 0, 0.24));
@@ -181,6 +187,47 @@ p {
   flex-grow: 0;
   z-index: 3;
 }
+
+.large-block:hover {
+  background-color: #10121f; /* New background color on hover */
+  /*box-shadow: 0 0 20px rgba(24, 54, 220, 0.7); /* Glowing effect */
+  box-shadow: rgba(0, 95, 175, 0.4) 5px 5px, rgba(0, 95, 175, 0.3) 10px 10px;
+
+  transform: scale(1.1); /* Enlarge the element on hover */
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Apply transitions for smoother animation */
+
+}
+
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Update .card styles */
+.card {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
 
 .promo .promo-accent {
   background: linear-gradient(
