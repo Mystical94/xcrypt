@@ -5,8 +5,8 @@ import { Main } from './pages/main';
 
 import { configureChains, createClient, goerli, mainnet, WagmiConfig } from 'wagmi';
 import { localhost } from 'wagmi/chains';
-import { xdcTestnet } from './utils/xdcTestnet';
-import { xdc } from './utils/xdc';
+import { bnbTestnet } from './utils/bnbTestnet';
+import { opbnbTestnet } from './utils/opbnbTestnet';
 
 import { publicProvider } from 'wagmi/providers/public';
 
@@ -14,7 +14,7 @@ import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [ xdc, xdcTestnet, mainnet, goerli, localhost],
+  [ bnbTestnet, opbnbTestnet, mainnet, goerli, localhost],
   [publicProvider()]
 );
 const client = createClient({

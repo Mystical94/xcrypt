@@ -15,8 +15,8 @@ import {
   usePrepareContractWrite,
   useWaitForTransaction
 } from 'wagmi';
-import { default as REGISTRY_ABI } from '../abi/Registry.json';
-import { registryAddress, explorer } from '../utils/constants';
+import { default as STEALTH_ABI } from '../abi/StealthAddress.json';
+import { stealthAddress, explorer } from '../utils/constants';
 import { calculateCrc } from '../utils/crc16';
 import useDebounce from '../utils/debounce';
 import { formatEtherTruncated } from '../utils/format';
@@ -36,7 +36,7 @@ export function Send() {
   });
   const { chain } = useNetwork();
 
-  const [xdcAddr, setxdcAddr] = useState<string>(
+  const [bnbAddr, setbnbAddr] = useState<string>(
     ethers.constants.AddressZero
   );
   const [sharedSecretByte, setSharedSecretByte] = useState<string>('0x00');
@@ -50,17 +50,17 @@ export function Send() {
   const [hash] = useState<string>(window.location.hash);
 
   const debouncedAmount = useDebounce(amountWei, 500);
-  const debouncedAddr = useDebounce(xdcAddr, 500);
-  const explorerAddress = explorer[chain?.id || 50 || 51];
+  const debouncedAddr = useDebounce(bnbAddr, 500);
+  const explorerAddress = explorer[chain?.id || 97 || 5611];
 
   const {
     isError: isPrepareError,
     error: prepareError,
     config,
   } = usePrepareContractWrite({
-    address: registryAddress[chain?.id || 0],
-    abi: REGISTRY_ABI,
-    functionName: 'publishAndSend',
+    address: stealthAddress[chain?.id || 0],
+    abi: STEALTH_ABI,
+    functionName: 'sendAnonymously',
     args: [
       '0x' + ephPublic?.getX().toString(16, 64),
       '0x' + ephPublic?.getY().toString(16, 64),
@@ -134,7 +134,7 @@ export function Send() {
 
       const addr = keccak256(pub.splice(1));
 
-      setxdcAddr(
+      setbnbAddr(
         getAddress('0x' + addr.substring(addr.length - 40, addr.length))
       );
 
@@ -186,7 +186,7 @@ export function Send() {
   return (
     <div style={{ paddingTop: '1rem' }}>
       <p>
-      XDC will be sent to a secret blockchain account that will hold the XDC temporarily.
+      BNB will be sent to a secret blockchain account that will hold the BNB temporarily.
       The user who owns the Xcrypt ID will have control over the secret account.
       </p>
       <form

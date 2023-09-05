@@ -1,4 +1,4 @@
-import { faDiscord, faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 import {
   faArrowRight,
   faArrowTurnDown
@@ -18,7 +18,7 @@ import Logo from '../svg/logo.png';
 import SendReceive from '../svg/send-receive.svg';
 import Shield from '../svg/shield.svg';
 
-import { registryAddress, explorer } from '../utils/constants';
+import { stealthAddress, explorer } from '../utils/constants';
 
 import './main.css';
 
@@ -26,8 +26,8 @@ export function Main() {
   const [activeTab, setActiveTab] = useState<string>('send');
 
   const { chain } = useNetwork();
-  const contractAddress = registryAddress[chain?.id || 50 || 51];
-  const explorerAddress = explorer[chain?.id || 50 || 51];
+  const contractAddress = stealthAddress[chain?.id ||  97 || 5611];
+  const explorerAddress = explorer[chain?.id || 97 || 5611];
 
   return (
     <section className="layout">
@@ -52,7 +52,7 @@ export function Main() {
         <div className="promo large-block">
           <h1>
           Introducing <span className="promo-accent">Anonymous</span> & <span className="promo-accent">Effortless</span>
-            <br /> Transfers on the {chain?.name.split(' ')[0] || 'XDC'} Network
+            <br /> Transfers on the {chain?.name.split(' ')[0] || 'BNB'} Network
           </h1>
 
           <div className="benefits">
@@ -66,7 +66,7 @@ export function Main() {
             <div className="item">
               <img src={SendReceive} alt="" width={24} />
               <p>
-                Send and receive {chain?.nativeCurrency.symbol || 'XDC'}{' '}
+                Send and receive {chain?.nativeCurrency.symbol || 'BNB'}{' '}
                 <strong>privately</strong>
               </p>
             </div>
@@ -87,7 +87,7 @@ export function Main() {
                   &nbsp; Send
                 </h2>
                 <span className="super">
-                  {chain?.nativeCurrency.symbol || 'XDC'}
+                  {chain?.nativeCurrency.symbol || 'BNB'}
                 </span>
               </div>
               <div
@@ -99,7 +99,7 @@ export function Main() {
                   &nbsp; Receive
                 </h2>
                 <span className="super">
-                  {chain?.nativeCurrency.symbol || 'XDC'}
+                  {chain?.nativeCurrency.symbol || 'BNB'}
                 </span>
               </div>
             </div>
@@ -123,7 +123,7 @@ export function Main() {
 
         <div className="footer">
           <a
-            href="https://youtu.be/zeQw4JHy00o"
+            href="https://"
             rel="noreferrer"
             target="_blank"
           >
@@ -132,21 +132,6 @@ export function Main() {
               <FontAwesomeIcon icon={faYoutube} />
             </span>
           </a>
-          <a
-            href={`https://${explorerAddress}/address/${contractAddress}`}
-            style={{ flexGrow: 1 }}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>
-              Registry contract &nbsp;
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                transform={{ rotate: -45 }}
-              />
-            </span>
-          </a>
-          <span className="version">v1.0.0</span>
         </div>
       </div>
     </section>

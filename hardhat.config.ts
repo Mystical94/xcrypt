@@ -8,11 +8,11 @@ dotenv.config();
 import './tasks/deploy';
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
-const XDC_API_KEY = process.env.XDC_API_KEY || "";
+const BNB_API_KEY = process.env.BNB_API_KEY || "";
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.17",
+    version: "0.8.18",
     settings: {
       optimizer: {
         enabled: true,
@@ -21,14 +21,14 @@ const config: HardhatUserConfig = {
     }
   },
   networks: {
-    xdc: {
-      url: `https://erpc.xinfin.network`,
-      chainId: 50,
+    bnbTestnet: {
+      url: `https://endpoints.omniatech.io/v1/bsc/testnet/public`,
+      chainId: 97,
       accounts: [`0x${PRIVATE_KEY}`]
     },
-    xdcTestnet: {
-      url: `https://erpc.apothem.network`,
-      chainId: 51,
+    opbnbTestnet: {
+      url: `https://opbnb-testnet-rpc.bnbchain.org`,
+      chainId: 5611,
       accounts: [`0x${PRIVATE_KEY}`]
     },
     coverage: {
@@ -54,7 +54,7 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      xdcTestnet: XDC_API_KEY
+      bnbTestnet: BNB_API_KEY
     }
   }
 };

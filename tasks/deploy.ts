@@ -2,13 +2,13 @@ import '@nomiclabs/hardhat-waffle';
 import { task } from 'hardhat/config';
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 
-task('deploy', 'Deploy Registry contract').setAction(
+task('deploy', 'Deploy StealthAddress contract').setAction(
   async (_, hre: HardhatRuntimeEnvironment): Promise<void> => {
-    const Registry = await hre.ethers.getContractFactory('Registry');
-    const registry = await Registry.deploy();
+    const StealthAddress = await hre.ethers.getContractFactory('StealthAddress');
+    const stealthAddress = await StealthAddress.deploy();
 
-    await registry.deployed();
+    await stealthAddress.deployed();
 
-    console.log('Registry deployed to:', registry.address);
+    console.log('StealthAddress deployed to:', stealthAddress.address);
   }
 );

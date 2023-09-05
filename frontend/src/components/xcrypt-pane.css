@@ -20,7 +20,7 @@
 
   /*background: linear-gradient(270deg, rgba(25, 27, 39, 0) 0%, #191b27 100%);*/
 
-  background-color: rgb(58, 255, 234, 0.7); /* Initial background color */
+  background-color: rgb(240, 185, 11, 0.7); /* Initial background color */
   /*transition: background-color 0.3s ease; /* Transition for smooth color change */
 
   filter: drop-shadow(16px 0px 16px rgba(0, 0, 0, 0.24)) !important;
@@ -55,7 +55,7 @@
 }
 
 .xcrypt-pane-header h1 {
-  color: #005faf;
+  color: #ffd40b;
 }
 
 .xcrypt-pane-header .arrow {
@@ -67,7 +67,7 @@
 }
 
 .xcrypt-pane .block-wide {
-  border-left: 2px solid #005faf;
+  border-left: 2px solid #ffd40b;
   box-sizing: border-box;
 
   /* Auto layout */

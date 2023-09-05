@@ -28,7 +28,7 @@ export function Connect() {
   const { disconnect } = useDisconnect();
 
   const [metamask, walletConnect] = connectors;
-  const explorerAddress = explorer[chain?.id || 50 || 51];
+  const explorerAddress = explorer[chain?.id || 97 || 5611];
 
   const shortAddress = address
     ? `${address.substring(0, 6)}…${address.substring(address.length - 4)}`

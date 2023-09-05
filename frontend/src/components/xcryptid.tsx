@@ -200,7 +200,7 @@ export function XcryptID() {
         className="xcrypt-pane-body"
         style={{ display: opened ? 'block' : 'none' }}
       >
-        <p className="block">Share the Xcrypt ID to receive XDC</p>
+        <p className="block">Share the Xcrypt ID to receive BNB</p>
         <div className="xcrypt-pane-header buttons">
           <div className="block-wide">
             <p className="label" style={{ textTransform: 'uppercase' }}>

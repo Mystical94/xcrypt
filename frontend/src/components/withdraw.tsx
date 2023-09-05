@@ -19,9 +19,9 @@ import { ec as EC } from 'elliptic';
 import { BigNumber, ethers } from 'ethers';
 import { formatEther, getAddress, keccak256 } from 'ethers/lib/utils';
 import { useAccount, useContractRead, useNetwork } from 'wagmi';
-import { default as REGISTRY_ABI } from '../abi/Registry.json';
+import { default as STEALTH_ABI } from '../abi/StealthAddress.json';
 import { copyTextToClipboard } from '../utils/clipboard';
-import { registryAddress, explorer } from '../utils/constants';
+import { stealthAddress, explorer } from '../utils/constants';
 import { formatEtherTruncated } from '../utils/format';
 import { AddressContext, AddressContextType } from './address';
 
@@ -46,11 +46,11 @@ export function Withdraw() {
   const { chain } = useNetwork();
   const { isConnected, address, connector } = useAccount();
 
-  const registryConfig = {
-    address: registryAddress[chain?.id || 50 || 51],
-    abi: REGISTRY_ABI,
+  const stealthAddressConfig = {
+    address: stealthAddress[chain?.id || 97 || 5611],
+    abi: STEALTH_ABI,
   };
-  const explorerAddress = explorer[chain?.id || 50 || 51];
+  const explorerAddress = explorer[chain?.id || 97 || 5611];
 
   const [keysCount, setKeysCount] = useState<number>(0);
   const [keysIndex, setKeysIndex] = useState<number>(0);
@@ -61,14 +61,14 @@ export function Withdraw() {
   }, [spendingKey, chain]);
 
   const { refetch: refetchKeys } = useContractRead({
-    ...registryConfig,
+    ...stealthAddressConfig,
     functionName: 'getNextKeys',
     args: [BigNumber.from(keysIndex)] as const,
     enabled: isConnected,
   });
 
   const { data: _keysCount, refetch: refetchKeysCount } = useContractRead({
-    ...registryConfig,
+    ...stealthAddressConfig,
     functionName: 'totalKeys',
     enabled: isConnected,
   });
@@ -213,14 +213,19 @@ export function Withdraw() {
       const provider = new StaticJsonRpcProvider(chain?.rpcUrls.public.http[0]);
       const signer = new ethers.Wallet(key.toArray(undefined, 32), provider);
 
-      const gasLimit = config.request.gasLimit as BigNumber;
+      let gasLimit = config.request.gasLimit as BigNumber;
 
       const connectedSigner = await connector?.getSigner();
-      const gasPrice = await connectedSigner.getGasPrice();
+      let gasPrice = await connectedSigner.getGasPrice();
 
-      const fee = gasLimit.mul(gasPrice);
+      let fee = gasLimit.mul(gasPrice);
       /* .mul(BigNumber.from(3))
         .div(BigNumber.from(2)); */
+
+      if(chain?.id == 5611) {
+        fee = fee.add(25000000000000);
+        console.log(`opbnb: ${fee.toNumber()}`);
+      }        
 
       console.log(
         `Fee: ${fee.toNumber()}, gasLimit: ${gasLimit.toString()}, gasPrice: ${gasPrice.toString()}`

@@ -171,7 +171,7 @@ p {
 
   background: linear-gradient(270deg, rgba(25, 27, 39, 0) 0%, #191b27 100%);
 
-  background-color: rgb(58, 255, 234, 0.7); /* Initial background color */
+  background-color: rgb(255, 212, 11, 0.7); /* Initial background color */
   transition: background-color 0.3s ease; /* Transition for smooth color change */
 
   /* shadow-right */
@@ -190,10 +190,10 @@ p {
 
 .large-block:hover {
   background-color: #10121f; /* New background color on hover */
-  /*box-shadow: 0 0 20px rgba(24, 54, 220, 0.7); /* Glowing effect */
-  box-shadow: rgba(0, 95, 175, 0.4) 5px 5px, rgba(0, 95, 175, 0.3) 10px 10px;
+  box-shadow: 0 0 20px rgba(255, 212, 11, 0.9); /* Glowing effect 
+  /*box-shadow: rgba(255, 212, 11, 0.4) 5px 5px, rgba(255, 212, 11, 0.3) 10px 10px;*/
 
-  transform: scale(1.1); /* Enlarge the element on hover */
+  transform: scale(1.02); /* Enlarge the element on hover */
   transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Apply transitions for smoother animation */
 
 }
@@ -232,8 +232,8 @@ p {
 .promo .promo-accent {
   background: linear-gradient(
     90deg,
-    rgba(0, 95, 175, 0.353) 0%,
-    #005faf 100%
+    rgba(255, 212, 11, 0.353) 0%,
+    #ffd40b 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -307,7 +307,7 @@ p {
 }
 
 .hbutton {
-  background: #005faf;
+  background: #ffd40b;
   border-radius: 8px;
   font-family: 'Poppins';
   font-style: normal;
@@ -333,7 +333,7 @@ p {
 
   /* accent */
 
-  color: #005faf;
+  color: #ffd40b;
 }
 
 .hbutton:active {
@@ -384,7 +384,7 @@ p {
 
   /* primary */
 
-  color: #2bbbad;
+  color: #ffe40a;
 
   /* Inside auto layout */
 
@@ -394,16 +394,16 @@ p {
 }
 
 .nav-tabs .active {
-  border-bottom: 2px solid #005faf;
-  color: #005faf !important;
+  border-bottom: 2px solid #ffd40b;
+  color: #ffd40b !important;
 }
 
 .nav-tabs .active h2 {
-  color: #005faf !important;
+  color: #ffd40b !important;
 }
 
 .nav-tabs .active .super {
-  color: #005faf !important;
+  color: #ffd40b !important;
 }
 
 .nav-tabs .tab.disabled h2,
@@ -461,7 +461,7 @@ p {
   order: 0;
   flex-grow: 0;
 
-  color: #005faf;
+  color: #ffd40b;
 }
 
 .footer a:active {
@@ -499,19 +499,20 @@ p {
   }
 
   .nav-tabs .tab:hover h2 {
-    color: #2bbbad !important;
+    color: #ffe40a !important;
   }
 
   .nav-tabs .tab:hover .super {
-    color: #2bbbad !important;
+    color: #ffe40a !important;
   }
 
   .hbutton:hover {
-    background: #2bbbad;
+    background: #ffe40a;
+    box-shadow: 0 0 20px rgba(255, 212, 11, 0.9);
   }
 
   .hbutton-lnk:hover {
-    color: #2bbbad !important;
+    color: #ffe40a !important;
     background: none;
   }
 
@@ -521,7 +522,7 @@ p {
   }
 
   .hbutton:hover:disabled {
-    background: #005faf;
+    background: #ffd40b;
   }
 
   .hbutton-lnk:hover:disabled {
